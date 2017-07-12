@@ -1,0 +1,13 @@
+<div class="app">
+  <div class="app-header"></div>
+    <app-header></app-header>
+  <div class="app-section">
+    <div class="app-nav">
+      <ds-sidebar [data]="sidebarData"
+                   [version]="(version$ | async)"></ds-sidebar>
+    </div>
+    <div class="app-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

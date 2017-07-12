@@ -1,0 +1,44 @@
+#header {
+  background-color: #263E53;
+  border: 1px black;
+  z-index: 1020;
+  align-items: center;
+
+  .navbar-nav {
+
+    & > div {
+      float: left;
+    }
+    & > div > a {
+      line-height: 20px;
+      padding: 17px 15px;
+      position: relative;
+      display: block;
+
+      &:hover, &:focus {
+        color: #333;
+        background: #fafafa;
+        opacity: 0.6;
+        filter: alpha(opacity=60);
+        text-decoration: none;
+      }
+
+      &:hover, &:focus {
+        color: #333;
+        background-color: transparent;
+      }
+
+    }
+  }
+}
+
+.nav > div {
+  position: relative;
+  display: block;
+}
+
+.navbar-language .flag-icon {
+  font-size: 15px;
+  margin: 2px 7px 0;
+  float: left;
+}
