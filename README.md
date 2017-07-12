@@ -61,12 +61,17 @@ Let's install dhs-common-module in our new `my-app`
 npm install --save-dev https://bitbucket.org/dhsit/dhs-common-module.git
 ```
 
-* Y to all four prompt and show how DHS-common-module initialize application UI
+Let's enter 'Y' to all four prompts and show how DHS-common-module initialize application UI
+> Yay we have basic UI
 
 
 ### 5\. Demonstrate making local changes to styles and modules/views
 
-Let's start from generating new app repeating the procedure of 3, 4 but without 4th prompt which will setup components on app module, so we can show how to manually make changes to local modules and views
+Now let's add new component to our new angular app which will display header menu using DHS-common-module
+
+```bash
+ng generate component components/header
+```
 
 * Make simple change on app.component.less and show applied effect.
 
@@ -162,3 +167,4 @@ open my-app and install your branch
 ```bash
 npm install --save-dev https://bitbucket.org/dhsit/dhs-common-module.git#milokang/sidebar-style
 ```
+
