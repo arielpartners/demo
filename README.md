@@ -26,25 +26,43 @@ npm run hmr
 
 ### 3\. Generate a baseline Angular 4 App using the CLI
 
-*commands*
+
+#### Initialize new project with angular-cli
+
+Use option `--style` to set default style extension, in our case we want it to be less.
+
+By running `ng new` command angular-cli will install essential packages to run angular project
+
 ```bash
-ng new my-app
+ng new my-app --style less
+```
+
+#### Serve new project
+
+Use option `--open` to open application on default browser
+
+```bash
 cd my-app
 ng serve --open
 ```
-show browser how new angular 4 application will be displayed
+
+If `localhost:4200` displays 'App works', we are good to go.
 
 
 ### 4\. Demonstrate "enhancing" the baseline App with DHS Common Modules
 
-Let's install dhs-common-module in our new `my-app`
+#### Installation
 
-* Demo how postinstall prompt is working
+Now begins fun part.
+Let's install dhs-common-module in our new `my-app`
 
 *commands*
 ```bash
 npm install --save-dev https://bitbucket.org/dhsit/dhs-common-module.git
 ```
+
+* Y to all four prompt and show how DHS-common-module initialize application UI
+
 
 ### 5\. Demonstrate making local changes to styles and modules/views
 
