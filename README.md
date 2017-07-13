@@ -165,7 +165,7 @@ git push origin milokang/sidebar-color
 
 Add reviewer on bitbucket
 
-## **OPTIONAL** Demonstrate how versioning allows individual projects to opt-in to the latest common modules, or not.
+### **OPTIONAL** Demonstrate how versioning allows individual projects to opt-in to the latest common modules, or not.
 
 open my-app and install your branch
 
