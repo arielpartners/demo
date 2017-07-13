@@ -11,21 +11,10 @@ TODO for demonstration of DHS App Generation:
 7. [ ] Demonstrate how versioning allows individual projects to opt-in to the latest common modules, or not.
 
 
-### 1\. Architectural Slides
-[View slide pdf](https://github.com/arielpartners/demo/blob/master/dhs-demo-slide.pdf)
+### 1\. Give an Architectural Overview for the canonical DHS App
 
-### 2\. Give an Architectural Overview for the canonical DHS App
 
-```bash
-git clone https://bitbucket.org/dhsit/dhs-scaffolding-ngclient.git
-cd dhs-scaffolding-ngclient
-npm install
-npm run json-server
-npm run hmr
-```
-
-### 3\. Generate a baseline Angular 4 App using the CLI
-
+### 2\. Generate a baseline Angular 4 App using the CLI
 
 #### Initialize new project with angular-cli
 
@@ -48,10 +37,18 @@ ng serve --open
 
 If `localhost:4200` displays 'App works', we are good to go.
 
+### 3\. Architectural Slides
+[View slide pdf](https://github.com/arielpartners/demo/blob/master/dhs-demo-slide.pdf)
+
 
 ### 4\. Demonstrate "enhancing" the baseline App with DHS Common Modules
 
 #### Installation
+
+Introduce dhs-common-module:
+* common modules
+* common styles
+* redux observable and reducers
 
 Now begins fun part.
 Let's install dhs-common-module in our new `my-app`
@@ -61,7 +58,8 @@ Let's install dhs-common-module in our new `my-app`
 npm install --save-dev https://bitbucket.org/dhsit/dhs-common-module.git
 ```
 
-Let's enter 'Y' to all four prompts and show how DHS-common-module initialize application UI
+First Demo: only initial setup
+Second Demo: Let's enter 'Y' to all four prompts and show how DHS-common-module initialize application UI
 > Yay we have basic UI
 
 
@@ -69,9 +67,7 @@ Let's enter 'Y' to all four prompts and show how DHS-common-module initialize ap
 
 Now let's add new component to our new angular app which will display header menu using DHS-common-module
 
-```bash
-ng generate component components/header
-```
+**Copy header component from this repo**
 
 * Make simple change on app.component.less and show applied effect.
 
@@ -117,8 +113,18 @@ export const AppRoutes = [
   3\. add kpi tiles to home component
 Follow instruction on Demo app documentation to implement kpi tiles
 
+### 6\. Capdash2 demo
 
-### 6\. Demonstrate making local changes "global" by contributing changes back to common modules via npm linked cloned repos
+```bash
+git clone https://bitbucket.org/dhsit/dhs-scaffolding-ngclient.git
+cd dhs-scaffolding-ngclient
+npm install
+npm run json-server
+npm run hmr
+```
+
+
+### **OPTIONAL** Demonstrate making local changes "global" by contributing changes back to common modules via npm linked cloned repos
 
 * Demo how to use npm link and quick explanation
 * Demo how to create own branch and make changes
@@ -128,7 +134,7 @@ Follow instruction on Demo app documentation to implement kpi tiles
    * how to add files
    * how to make commits
    * how to push commits
-   * Add reviewer on bitbucket 
+   * Add reviewer on bitbucket
    * Merge approved PR
 
 
@@ -159,7 +165,7 @@ git push origin milokang/sidebar-color
 
 Add reviewer on bitbucket
 
-## 7\. Demonstrate how versioning allows individual projects to opt-in to the latest common modules, or not.
+## **OPTIONAL** Demonstrate how versioning allows individual projects to opt-in to the latest common modules, or not.
 
 open my-app and install your branch
 
@@ -167,4 +173,3 @@ open my-app and install your branch
 ```bash
 npm install --save-dev https://bitbucket.org/dhsit/dhs-common-module.git#milokang/sidebar-style
 ```
-
