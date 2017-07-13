@@ -48,10 +48,17 @@ ng serve --open
 
 If `localhost:4200` displays 'App works', we are good to go.
 
+### 4\. Architecture slides - Craeg
+
 
 ### 4\. Demonstrate "enhancing" the baseline App with DHS Common Modules
 
 #### Installation
+
+Introduce dhs-common-module:
+* common modules
+* common styles
+* redux observable and reducers
 
 Now begins fun part.
 Let's install dhs-common-module in our new `my-app`
@@ -61,7 +68,8 @@ Let's install dhs-common-module in our new `my-app`
 npm install --save-dev https://bitbucket.org/dhsit/dhs-common-module.git
 ```
 
-Let's enter 'Y' to all four prompts and show how DHS-common-module initialize application UI
+First Demo: only initial setup
+Second Demo: Let's enter 'Y' to all four prompts and show how DHS-common-module initialize application UI
 > Yay we have basic UI
 
 
@@ -128,7 +136,7 @@ Follow instruction on Demo app documentation to implement kpi tiles
    * how to add files
    * how to make commits
    * how to push commits
-   * Add reviewer on bitbucket 
+   * Add reviewer on bitbucket
    * Merge approved PR
 
 
@@ -167,4 +175,3 @@ open my-app and install your branch
 ```bash
 npm install --save-dev https://bitbucket.org/dhsit/dhs-common-module.git#milokang/sidebar-style
 ```
-
