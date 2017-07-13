@@ -67,9 +67,7 @@ Second Demo: Let's enter 'Y' to all four prompts and show how DHS-common-module 
 
 Now let's add new component to our new angular app which will display header menu using DHS-common-module
 
-```bash
-ng generate component components/header
-```
+**Copy header component from this repo**
 
 * Make simple change on app.component.less and show applied effect.
 
