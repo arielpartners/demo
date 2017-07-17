@@ -1,10 +1,5 @@
 # demo
 
-## Agenda
-* [Overview(Charles)]()
-* [Slides(Craeg)]()
-* [Demo(Graig & Milo)]()
-
 ### 1. Overview
 
 Each new project that spins up typically has several weeks of overhead dedicated to infrastructure development and technology discussions.
