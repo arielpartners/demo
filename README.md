@@ -1,165 +1,125 @@
 # demo
-A place to keep notes and demonstrations
 
-TODO for demonstration of DHS App Generation:
-1. [x] Create Architectural Slides
-2. [ ] Give an Architectural Overview for the canonical DHS App
-3. [x] Generate a baseline Angular 4 App using the CLI
-4. [x] Demonstrate "enhancing" the basline App with DHS Common Modules
-5. [ ] Demonstrate making local changes to styles and modules/views
-6. [ ] Demonstrate making local changes "global" by contributing changes back to common modules via npm linked cloned repos
-7. [ ] Demonstrate how versioning allows individual projects to opt-in to the latest common modules, or not.
+## Agenda
+* [Overview(Charles)]()
+* [Slides(Craeg)]()
+* [Demo(Graig & Milo)]()
 
+### 1. Overview
 
-### 1\. Architectural Slides
+Each new project that spins up typically has several weeks of overhead dedicated to infrastructure development and technology discussions.
+As projects age they become increasingly difficult to understand, as a result code becomes ever more costly to maintain and it becomes increasingly tempting for new teams to abandon legacy code and rewrite from scratch.
+
+Our goals are simple; Make it trivial to adopt a consistent set of styles, and best practices that have stood the test of time, enterprise wide.
+These best practices include:
+-  Component based development
+-  State management that is easy to reason about
+-  Performance
+-  Testing/Documentation
+-  Linting
+-  Package management and versioning
+-  Providing a clear upgrade path
+-  Maintainability through all of the above
+
+### 2\. Slides
 [View slide pdf](https://github.com/arielpartners/demo/blob/master/dhs-demo-slide.pdf)
 
-### 2\. Give an Architectural Overview for the canonical DHS App
+### 3\. Demo
 
-```bash
-git clone https://bitbucket.org/dhsit/dhs-scaffolding-ngclient.git
-cd dhs-scaffolding-ngclient
-npm install
-npm run json-server
-npm run hmr
-```
+#### 1\) Generate a baseline Angular 4 App using the CLI
 
-### 3\. Generate a baseline Angular 4 App using the CLI
-
-
-#### Initialize new project with angular-cli
-
-Use option `--style` to set default style extension, in our case we want it to be less.
-
-By running `ng new` command angular-cli will install essential packages to run angular project
+##### Initialize new project with angular-cli
 
 ```bash
 ng new my-app --style less
 ```
 
-#### Serve new project
+> Use option `--style` to set default style extension, in our case we want it to be less.
+  By running `ng new` command angular-cli will install essential packages to run angular project
 
-Use option `--open` to open application on default browser
+##### Serve new project
 
 ```bash
 cd my-app
 ng serve --open
 ```
 
-If `localhost:4200` displays 'App works', we are good to go.
+> Use option `--open` to open application on default browser
+If 'App works' displays on browser, we are good to go.
 
+#### 2\) Demonstrate "enhancing" the baseline App with DHS Common Modules
 
-### 4\. Demonstrate "enhancing" the baseline App with DHS Common Modules
+##### Installation
 
-#### Installation
-
-Now begins fun part.
-Let's install dhs-common-module in our new `my-app`
-
-*commands*
 ```bash
 npm install --save-dev https://bitbucket.org/dhsit/dhs-common-module.git
 ```
 
+> Now begins fun part.
+ Let's install dhs-common-module in our new `my-app`
+
+##### Senario 1: Only essentials
+
+```bash
+npm run hmr
+```
+
+> User can set up essentials to new angular application
+  After common module is installed we can run our own npm scripts
+
+Show that bootstrap has taken effect an changed font and background color
+
+
+##### Senario 2: Full monte
+
 Let's enter 'Y' to all four prompts and show how DHS-common-module initialize application UI
-> Yay we have basic UI
-
-
-### 5\. Demonstrate making local changes to styles and modules/views
-
-Now let's add new component to our new angular app which will display header menu using DHS-common-module
 
 ```bash
-ng generate component components/header
+npm run hmr
+npm run json-server
+```
+> User can initialize application with authentication, header menu and sidebar
+
+#### 3\. Demonstrate making local changes to styles and modules/views
+
+> First we will make change to local Header Component,
+  We will simply demonstrate changing color scheme of header menu background color
+
+```css
+#header {
+  background-color: #115322;
+}
 ```
 
-* Make simple change on app.component.less and show applied effect.
+SHOW BROWSER
 
-* Start demo app of `dhs-common-module` to introduce our documentation and example.
+#### 4\. Demonstrate making local changes "global" by contributing changes back to common modules via npm linked cloned repos
 
-* Add sidebar and kpi tile on local project following steps of demo app
+> If we compare sidebar and header in `app.component.html`.  We can see those two components are using different prefix.
+  While components with 'ds' prefix are part of DHS common module. ones with 'app' is local components.
+  Now we will demonstrate how we will make this `<app-header>` as part of DHS common module.
 
-*commands*
+> Let's start with creating new branch
+
 ```bash
-git clone https://bitbucket.org/dhsit/dhs-common-module.git
-cd dhs-common-module
-npm install
-npm start
+git checkout -b milokang/header-menu-demo
 ```
 
-#### 1\. how to make changes on template stylesheets on component?
-Follow instruction on Demo app documentation to implement sidebar
+COPY header dir from my-app to dhs-common-module/src/lib
 
-- make changes on app.component.html
-- make changes on app.component.less
-- make changes on app.component.ts
+* change prefix from 'app' to 'ds'
+* add header.module.ts(PREPARE SNIPPET)
+* add module dependency
 
-
-#### 2\. how to add new component(HomeComponent)?
-[AngularCLI github README.md](https://github.com/angular/angular-cli)
-
-  1\. generate home component
-``` bash
-ng generate component home
-ng g component home
-```
-
-  2\. add home component to app.routes.ts
-```javascript
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-export const AppRoutes = [
-  { path: '', redirectTo: 'home' }
-  { path: 'home', component: HomeComponent }
-]
-```
-
-  3\. add kpi tiles to home component
-Follow instruction on Demo app documentation to implement kpi tiles
-
-
-### 6\. Demonstrate making local changes "global" by contributing changes back to common modules via npm linked cloned repos
-
-* Demo how to use npm link and quick explanation
-* Demo how to create own branch and make changes
-   * should show if changes made in local branch of `dhs-common-module` had taken effect in `new-app`
-
-* Demo PR workflow
-   * how to add files
-   * how to make commits
-   * how to push commits
-   * Add reviewer on bitbucket 
-   * Merge approved PR
-
-
-At this point, we should have cloned DHS Common Module and My App in same directory
-
-*Link New App to DHS Common Module*
-```bash
-cd my-app
-npm link ../dhs-common-module
-```
-
-Show how linking makes seeing changes in DHS Common Module easy
-
-*Create your own branch in DHS Common Module*
-```bash
-git checkout -b milokang/sidebar-color
-```
-Make a change in DHS Common Module
-
-See results in My App in browser and/or in node_modules/dhs-common-module
-
-*Making a PR*
 ```bash
 git add .
-git commit -m 'change sidebar panel default background color scheme'
-git push origin milokang/sidebar-color
+git commit -m 'add header module to common module'
+git push origin milokang/header-menu-demo
 ```
 
-Add reviewer on bitbucket
+NOTE: Demo with PR / branch?
 
-## 7\. Demonstrate how versioning allows individual projects to opt-in to the latest common modules, or not.
+## 5\. Demonstrate how versioning allows individual projects to opt-in to the latest common modules, or not.
 
 open my-app and install your branch
 
@@ -167,4 +127,5 @@ open my-app and install your branch
 ```bash
 npm install --save-dev https://bitbucket.org/dhsit/dhs-common-module.git#milokang/sidebar-style
 ```
+
 
