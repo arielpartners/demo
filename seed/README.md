@@ -79,7 +79,7 @@ caf version
 **Create new application**
 
 ```bash
-caf version test-app
+caf new test-app
 ```
 
 **Serve the application**
