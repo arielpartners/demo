@@ -1,6 +1,6 @@
 # Angular 4 Seed Walkthrough
 
-##Overview
+## Overview
 
 Each new project that spins up typically has several weeks of overhead dedicated to infrastructure development and technology discussions.
 As projects age they become increasingly difficult to understand, as a result code becomes ever more costly to maintain and it becomes increasingly tempting for new teams to abandon legacy code and rewrite from scratch.
@@ -37,7 +37,7 @@ Within this demo we will cover
 - Alternative installation using generator
 
 
-##Installation
+## Installation
 
 **Clone latest angular 4 seed repository**
 
@@ -63,7 +63,7 @@ npm run json-server
 ** Set application name **
 > Update package name according to your application name from `caf-angular-client` to your application name
 
-##Alternative Installation(using CLI)
+## Alternative Installation(using CLI)
 **Install generator `caf-angular-cli` globally**
 
 ```bash
@@ -90,7 +90,7 @@ npm start
 npm run json-server
 ```
 
-##File structure
+## File structure
 
 Once application is served on browser you can see that this seed will provide
 
@@ -129,14 +129,14 @@ Once application is served on browser you can see that this seed will provide
 > Other than redux file structure is very similar to Angular application created with Angular CLI.
 
 
-##Examples of `caf-angular-common` module
+## Examples of `caf-angular-common` module
 
 KPI tiles and basic table are placed in dashboard page as an example of how to use `caf-angular-common` library.
 There aren't sufficient examples and usages for all `caf-angular-common` library components in the seed yet.
 
 However our team is looking to update them in short future.
 
-##Create new component with Angular CLI
+## Create new component with Angular CLI
 > Let's try to create new component
 
 **Using Angular CLI(when cli is installed globally)**
@@ -169,7 +169,7 @@ import { SampleComponent } from './containers/sample/sample.component';
 
 > open browser after rendered and navigate to new component
 
-##Introduction to redux and redux dev tools.
+## Introduction to redux and redux dev tools.
 
 > Let's open application on chrome browser1 and show quick glance of Redux Dev Tools
 
@@ -186,7 +186,7 @@ In our seed, you can see that our epic will stream following actions by dispatch
 
 We won't have time to cover all benefits of redux... but
 
-##Demo making ajax request
+## Demo making ajax request
 
 Current KPI and table example on dashboard route is great example of
 how to use redux action to make AJAX request and use the response body.
@@ -201,7 +201,7 @@ To create api call to backend you can simply follow the steps.
 4. use store to dispatch
 5. use @select to receive response as Observable
 
-##How to run test and coverage report
+## How to run test and coverage report
 
 ```bash
 npm run coverage
@@ -209,7 +209,7 @@ npm run coverage-open
 ```
 > end to end test has error and will be fixed in short future
 
-##Demonstrate CI with bitbucket pipeline
+## Demonstrate CI with bitbucket pipeline
 > Let's create bitbucket repository and push our application
 
 ```bash
