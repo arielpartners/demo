@@ -60,7 +60,7 @@ npm run json-server
 ```
 > Open browser and go to `localhost:4200`
 
-** Set application name **
+**Set application name**
 > Update package name according to your application name from `caf-angular-client` to your application name
 
 ## Alternative Installation(using CLI)
@@ -163,7 +163,7 @@ import { SampleComponent } from './containers/sample/sample.component';
 {
   icon: 'book',
   text: 'Sample',
-  link: 'sample
+  link: 'sample'
 }
 ```
 
