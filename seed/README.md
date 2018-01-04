@@ -63,33 +63,6 @@ npm run json-server
 **Set application name**
 > Update package name according to your application name from `caf-angular-client` to your application name
 
-## Alternative Installation(using CLI)
-**Install generator `caf-angular-cli` globally**
-
-```bash
-npm install -g https://bitbucket.org/dhsit/caf-angular-cli
-```
-
-**Check if installed**
-
-```bash
-caf version
-```
-
-**Create new application**
-
-```bash
-caf new test-app
-```
-
-**Serve the application**
-
-```bash
-cd test-app
-npm start
-npm run json-server
-```
-
 ## File structure
 
 Once application is served on browser you can see that this seed will provide
@@ -184,7 +157,8 @@ In our seed, you can see that our epic will stream following actions by dispatch
 - update response to state
 - handles response error
 
-We won't have time to cover all benefits of redux... but
+We won't have time to cover all benefits of redux...
+so let's move on
 
 ## Demo making ajax request
 
@@ -219,4 +193,31 @@ git push -u origin master
 
 ## if there is time
 Demonstrate alternative Installation with `caf-angular-cli`
+
+## Alternative Installation(using CLI)
+**Install generator `caf-angular-cli` globally**
+
+```bash
+npm install -g https://bitbucket.org/dhsit/caf-angular-cli
+```
+
+**Check if installed**
+
+```bash
+caf version
+```
+
+**Create new application**
+
+```bash
+caf new test-app
+```
+
+**Serve the application**
+
+```bash
+cd test-app
+npm start
+npm run json-server
+```
 
