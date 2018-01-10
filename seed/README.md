@@ -11,28 +11,159 @@ abandon legacy code and rewrite from scratch.
 
 > Next slide
 
-Our goals are simple; Make it trivial to adopt a consistent set of styles, and best practices that have stood the test of time, enterprise wide.
-These best practices include:
+So why are we doing this?
 
--  Component based development
--  State management that is easy to reason about
--  Performance
--  Testing/Documentation
--  Linting
--  Package management and versioning
--  Maintainability through all of the above
+Today most of the teams suffer from UX design inconsistencies,
+while our common module will provide standard UI/UX design from DSS/DHS.
+
+From inflexible monolithic archtecture
+to separated client and server deployment units 
+deployed on the targeted server
+in order to facilitate multiple microservices.
+
+From older platforms and MVC Architecture,
+to Angular4 which is well-supported and rapidly growing platform.
+
+Long start-up latency to instant-on low latency
+
+Performance issues due to chattiness and large payloads,
+to fewer ajax calls with smaller payloads,
+
+Since previous server side view redering requires a lot of copy/paste,
+component based developement provides much more reusability,
+which means a lot less codes to build application.
+
+Also lint is built-in to help developers from
+writing inconsistent code quality and formatting.
+
+Fully automated acceptance and unit tests.
+
+Deployment is simple, automated,
+Continuous Integration and Continuous delivery is built-in,
+and easiley configurable using included bitbucket pipeline config file.
+
+Also Rich state debugging tools are available online
+such as Augury and Redux Dev Tools.
 
 > Next slide
 
-Seed will provide variety of useful features as starter such as;
+This is how `CAF Angular Client` built with `CAF Angular CLI` will look like.
+Huge differece from default landing page created with Angular CLI.
+All can be installed and serve on local machine with simple commands on terminal.
 
-- Sample usage of `CAF Angular Common` library
-- Production and Development builds
-- Hot module reload
-- State management using Redux
-- Sample unit test with Jasmin and Karma
-- Sample end-to-end test using CucumberJS
+> Next slide
+
+Let's take a look how CAF builds on top of Angular 4 application.
+
+- Out of the box Redux is configured to store states in single place.
+- JSON server is setup to serve mock web-api backend
+- package.json is updated to add bulid script for production and development, as well as update dependencies
+- CucumberJS is installed to provide rich readability through out E2E testing.
+- Basic Layout such as Header and Sidebar.
+- Example usage of `CAF Angular Common` library, routes, unit test, end-to-end test.
+- Hot module reload for quicker compilation and persistant state while development.
 - Continuous integration using Bitbucket Pipeline
+- Import DSS/DHS standard UX design stylesheet
+- Import `CAF Angular Common`
+
+> Next slide
+
+Now these are list of available common modules.
+
+- First AjaxModule to handle http request and response using redux and redux observable,
+- Pie, Donut, Stacked Area Charts are available and will add more(Bar, Line, Stacked Bar, etc...)
+- AuthGuard for front-end routes and Login component.
+- List and Menu which replace HTML <li> tag, Sidebar.
+- Badge, Icon, Key Performance Indicators Tiles,
+- Sortable and Searchable Data grid, which being refactor for more flexible and easier usage,
+- Global error handler to handle run time error,
+- Input controls for form including Textbox, Select, Radio, Checkbox, Datepicker, Range Slider
+- Panels, Modal,
+- Utility Pipes for string cases, highlighting, kilo, loading spinner and element resize service.
+- Notfication module to push notifications like toastr and alert module for inline alert within panel.
+
+Available `CAF Angular Common` modules are rapidly expanding and
+as we use build new applications using common modules,
+we are enhancing existing modules to facilitate new business requirements.
+
+> Next slide
+
+#### Environment comparison
+
+> The major change between version 1 and version over 2 is that standard language has changed  from javascript to typescript.
+
+> TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
+It provides deep readability for tools through its optional static typing at compile time,
+which allows us to make safe assumptions about state during execution. 
+As a result we can avoid painful common bugs by type-checking the code,
+reports issues even before you save files and leverage the type system to help you
+write code even faster.
+
+> Angular 4 application can easily scaffolded using Angular CLI, not only 
+
+- it can be used to generated new applications and components
+- it can serve the application on local machine or build application for production or dev mode with simple commands.
+- Run testing interface on web driver or browser.
+- compile typescript into javascript Ahead-of-time and Just-in-time using webpack.
+- now a days modern frameworks use CLI: (`ASP`: dotnet.exe, `Ruby`: rake, `React`: create-react-app)
+
+> While Angular 1 supports developers to use Jasmine and Karma for unit test
+and protractor for end to end test, it is not configured out of the box, 
+whereas in Angular 4 application created using Angular CLI and this seed, 
+karma and protractor are configured from get go
+with intanbul configured for coverage reports and CucumberJS for readable acceptance tests.
+Also newly generated components, directives, and services will be 
+created with test spec file along with template html and stylesheet by default.
+(we will demonstrate this later when creating new component using Angular CLI)
+
+> Next slide
+
+#### Architecture comparison
+
+> While Angular 1 is based on the Model-View-Controller archritecture,
+version over 2 introduces component base structure.
+Each component is javascript class object which contains properties as model, and template as view, methods as controller.
+This allows developers to create highy reuseable components and services,
+also group them into modular pieces, which can be injected on other components.
+
+
+> Next slide
+
+#### Git Submodules Separate Unit of Dev from Unit of deployment
+
+> This is a diagram to show how git submodules are being developed in `separate unit` from `unit of deployment`.
+
+- Parent project-repo combines git submodules into unit of development.
+- Each submodules are developed separately by specialists.
+- While Full-stack developer manages the `server-submodule` which communitcates to the server.
+- front-end developer can develope `client-submodule` with JSON server.
+- JSON server provides lightning-fast server-less development, allows to run acceptance tests on selenium webdriver with cucumber, and can be used as example payloads for swagger API documentation.
+- When any changes are made to ANY submodule, build will trigger for automated deployment.
+- Bitbucket pipeline and XL Deploy can be used to deploy bundled codes and nuget packages to dev server.
+
+
+> This allows a team to make progress in parallel and minimize blocking each others tasks.
+
+> Next slide
+
+#### How do I get started?(migrate from monolithic to microservices)
+
+> This diagram explains steps to covert monolithic architecture repository
+into a parent repository with git submodules working as container.
+
+> Next slide
+
+#### Key CAF Features
+
+- Sample usage of `CAF angular common`
+- Builds script for production and development.
+- Hot module reload to enhance development experience.
+- State management using Redux.
+- Sample unit test and end to end test.
+- CI/CD using bitbucket pipeline.
+
+
+# DEMO
 
 Within this demo we will cover
 
@@ -69,7 +200,11 @@ cd caf-angular-client
 npm install
 ```
 
-> while installing packages let's take a look at seed application archtecture
+> Next slide
+
+**Installlation filler( while npm install )**
+
+> while installing packages let's take a look at seed application archtecture.
 
 - components and directives are working as controllers and exported as modules
 - components and containers renders view
@@ -96,7 +231,7 @@ Once application is served on browser you can see that this seed provides
 
 ## File structure
 
-> before we look into actual code let's take a quick glance at file structure
+> before we look into actual code let's take a quick glance at file structure: Open sublime editor.
 
 **directories**
 - json-server: Seed will provide mock backend using JSON-server, which allows a team to work in front-end and back-end in parallel to support `Agile development` and minimize creating blockers while development.
@@ -140,6 +275,8 @@ However our team is looking to update them in short future.
 ng generate component containers/sample
 ```
 
+> You can see that this command just created component typescript, html, less and test spec files.
+
 **Update app routes**
 
 ```javascript
@@ -165,12 +302,32 @@ import { SampleComponent } from './containers/sample/sample.component';
 
 > open browser after rendered and navigate to new component "sample works!"
 
+**Component file structure filler( while creating new component )**
+
+> Let's take a moment to look at Angular component file structure.
+
 ## Introduction to redux and redux dev tools.
 
-> Let's open application on chrome browser and take a look at Redux Dev Tools
-
 This seed project uses redux for state management and it is configured out of the box.
-The main concept behind Redux is that the entire state of an application is stored in one central location.
+The main concept behind Redux is that the entire state of an application is stored in one central location, but there are more than that.
+
+**Why is Redux worth learning?( while intoroducing Redux )**
+
+> This diagram shows how..
+
+- User triggers dispatch action.
+- Middlewares catches the action and make API request, then receive response as payload.
+- Which gets passed down to Reducer where state is finally getting updated to store.
+
+> This concept might be hard to grasp in the beginning, but it has a lot of benefits such as
+- performance JSON data cached in store eliminates procedure of re-retrieving cached data on user navigation.
+- Centralized state provides high maintainability and keeps code neat and clean.
+- Significantly simplifies testability.
+- Can increase flexibility by set eviction policies to decied when to flush cache.
+- It also enables powerful use cases such as centralized error handler,
+- and recreate production scenario via export-import state using Redux Dev Tool
+
+> Let's open application on chrome browser and actually look at our Redux store using Redux Dev Tools
 
 Redux observable allows developers to create middleware which streamlines multiple actions.
 In this seed, you can see that our epic will stream following actions by dispatching single action.
@@ -179,9 +336,6 @@ In this seed, you can see that our epic will stream following actions by dispatc
 - recieve http response
 - update response to state
 - handles response error
-
-We won't have time to cover all benefits of redux...
-so let's move on
 
 ## Demo making ajax request
 
